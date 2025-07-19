@@ -1,0 +1,26 @@
+import java.util.*; // 🔴 unused
+
+public class BuggyService {
+
+    public void process(String input) {
+        String value = new String("hardcoded"); // 🔴 unnecessary
+        System.out.println("Input: " + input.toLowerCase()); // 🔴 possible NPE, and println
+
+        try {
+            Thread.sleep(1000); // 🔴 avoid
+        } catch (InterruptedException e) {
+        } // 🔴 empty catch
+
+        for (int i = 0; i < input.length(); i++) { // 🔴 unsafe if input is null
+            System.out.println(input.charAt(i));
+        }
+    }
+
+    public List<String> getUsers() {
+        return null; // 🔴 return emptyList instead
+    }
+
+    public void unusedMethod() { // 🔴 never called
+        int temp = 0; // 🔴 unused
+    }
+}
