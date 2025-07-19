@@ -52,6 +52,17 @@ public class AppointmentManager {
         manager.cancelAppointment("Arun"); // Non-existing
 
         manager.viewAppointments();
+        System.out.println("hello");
+    }
+     public void viewAppointments111() {
+        if (appointments.isEmpty()) {
+            System.out.println("No appointments available.");
+        } else {
+            System.out.println("Appointments:");
+            for (String name : appointments) {
+                System.out.println("- " + name);
+            }
+        }
     }
 }
 
